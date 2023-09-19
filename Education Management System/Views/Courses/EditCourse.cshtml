@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "EditCourse";
+    SelectList depListItems = new SelectList(Model.Departments, "ID", "Name");
+}
+<h1>EditCourse</h1>
+@model CourseDepartmentsInstructorsVM
+
+<h1 class="text-warning text-center">Add New Course</h1>
+
+<form method="post">
+    <div>
+        <input asp-for="ID" hidden class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Degree" class="form-label"></label>
+        <input asp-for="Degree" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="MinDegree" class="form-label"></label>
+        <input asp-for="MinDegree" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="DepID"></label>
+        <select asp-for="DepID" asp-items="depListItems" class="form-control">
+        </select>
+    </div>
+    @*  <div>
+    <label asp-for="InstID"></label>
+    <select asp-for="InstID" asp-items="instListItems" class="form-control">
+    </select>
+    </div> *@
+    <input type="submit" class="btn btn-danger" value="Save" />
+</form>
+<a asp-action="Index">Back To All Courses</a>
+
+

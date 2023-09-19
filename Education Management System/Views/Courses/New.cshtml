@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "New Course";
+    SelectList depListItems = new SelectList(Model.Departments, "ID", "Name");
+    // SelectList instListItems = new SelectList(Model.Instructors, "ID", "Name");
+}
+@model CourseDepartmentsInstructorsVM
+
+<h1 class="text-warning text-center">Add New Course</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Degree" class="form-label"></label>
+        <input asp-for="Degree" class="form-control" />
+        <span asp-validation-for="Degree"></span>
+
+
+    </div>
+    <div>
+        <label asp-for="MinDegree" class="form-label"></label>
+        <input asp-for="MinDegree" class="form-control" />
+        <span asp-validation-for="MinDegree"></span>
+    </div>
+    <div>
+        <label asp-for="DepID"></label>
+        <select asp-for="DepID" asp-items="depListItems" class="form-control">
+        </select>
+        <span asp-validation-for="DepID"></span>
+    </div>
+    @*  <div>
+    <label asp-for="InstID"></label>
+    <select asp-for="InstID" asp-items="instListItems" class="form-control">
+    </select>
+    </div> *@
+    <input type="submit" class="btn btn-danger" value="Create" />
+</form>
+<a asp-action="Index">Back To All Courses</a>
+@section Scripts {
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

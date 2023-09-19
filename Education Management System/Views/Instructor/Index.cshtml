@@ -1,0 +1,35 @@
+﻿@model List<Instructor>
+<h1 class="mb-4 text-center">Welcome To All Instructor Page </h1>
+<a class="btn btn-success" href="/instructor/new">New Instructor</a>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <td>ID</td>
+                <td>Name</td>
+                <td>Instructor Adress </td>
+                <td>Image</td>
+                <td>Instructor Page</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        @foreach(Instructor instructor in Model)
+        {
+            
+        
+        <tr>
+                <td class="text-center align-middle"> @instructor.ID </td>
+                <td class="text-center align-middle"> @instructor.Name </td>
+                <td class="text-center align-middle"> @instructor.Address </td>
+                 <td>
+                    <img src="~/images/@instructor.ImageUrl" class="d-block mx-auto" style="width: 100px; height: 100px;">
+                </td>
+                <td class="text-center align-middle text-decoration-none text-black">
+                    <a class="btn btn-success" asp-controller="Instructor" asp-action="Detail" asp-route-id="@instructor.ID"> Edit @instructor.Name Details</a>
+                </td>
+
+        </tr>    
+        }
+        </tbody>
+    </table>
+

@@ -1,0 +1,22 @@
+﻿@model StudentWithDegreeWithCourseNameWithColor
+
+<h1 class="text-warning text-center">Result For @Model.StudentName</h1>
+ <table class=" table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr class="text-center">
+            <td>StudentID</td>
+            <td>StudentName</td>
+            <td>CourseName</td>
+            <td>StudentDegree</td>
+         </tr>
+     </thead>
+     <tbody>
+        <tr>
+            <td class="text-center align-middle"> @Model.StudentID </td>
+            <td class="text-center align-middle"> @Model.StudentName </td>
+            <td class="text-center align-middle"> @Model.CourseName </td>
+            <td class="text-center align-middle" style="color :@Model.Color"> @Model.StudentDegree</td>
+        </tr>
+     </tbody>
+ </table>
+

@@ -1,0 +1,27 @@
+﻿@model StudentDegreeNameColorCourses
+
+<h1 class="text-warning text-center"> Student @Model.StudentName Degrees </h1>
+<table class=" table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr class="text-center">
+            <td>Student ID</td>
+            <td>Student Name</td>
+            <td>Course ID</td>
+            <td>Course Name</td>
+            <td>Student Degree</td>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model.courses)
+            {
+        <tr>
+            <td class="text-center align-middle"> @Model.StudentID </td>
+             <td class="text-center align-middle">@item.CourseID</td>
+                <td class="text-center align-middle">@item.CourseName</td>
+                <td class="text-center align-middle" style="color:@item.color">@item.degree</td>
+        </tr>
+            }
+           
+    </tbody>
+</table>
+

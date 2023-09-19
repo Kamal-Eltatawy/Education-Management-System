@@ -1,0 +1,59 @@
+﻿@model Instructor
+
+<form action="/instructor/Edite/@Model?.ID" method="post">
+  <div>
+   <label class="form-label"> Name </label>
+        <input class="form-control" value="@Model?.Name" name="Name" id="Name" type="text" 
+                        placeholder="Write Instructor Name"/>
+  </div>
+    <div>
+        <label> Address </label>
+        <input class="form-control" value="@Model?.Address" name="Address" id="Address" type="text"
+               placeholder="Write Instructor Address" />
+    </div>
+    <div>
+        <label> Salary </label>
+        <input class="form-control" value="@Model?.Salary" name="Salary" id="Salary" type="text"
+               placeholder="Write Instructor Salary" />
+    </div>
+    <div class="my-2">
+        <label> Image Url </label>
+        <input class="form-control" value="@Model?.ImageUrl" name="ImageUrl" id="ImageUrl" type="file"
+               placeholder="Uplode Instructor Image" />
+    </div>
+    <div>
+        <label>Department</label>
+        <select class="form-select" name="DepID"> 
+    @foreach (var item in ViewBag.Departments)
+    {
+                if (Model?.DepID==item.ID)
+                {
+                    <option selected value="@item.ID"> @item.Name</option>
+                }
+                else
+                {
+                <option value="@item.ID"> @item.Name</option>
+                }
+    }
+        </select>
+    </div>
+    <div class="my-4" >
+        <label>Courses</label>
+        <select class="form-select" name="CourseID">
+            
+            @foreach (var item in ViewBag.Courses)
+            {
+                if (Model?.CourseID == item.ID)
+                {
+                    <option selected value="@item.ID"> @item.Name</option>
+                }
+                else
+                {
+                <option value="@item.ID"> @item.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save" />
+</form>
+    <a href="/Instructor/Index">Back To List</a>
